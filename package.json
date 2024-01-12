@@ -1,0 +1,21 @@
+{
+  "name": "chatdapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "build": "esbuild src/main.js --bundle --outfile=build/out.js",
+    "serve": "esbuild --servedir=.",
+    "cli": "node main_cli.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "gun": "^0.2020.1239",
+    "readline": "^1.3.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.19.11"
+  }
+}

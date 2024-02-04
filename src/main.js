@@ -1,7 +1,7 @@
 const Gun = require("gun");
 
 async function main() {
-  const db = Gun();
+  const db = Gun([`https://gun-manhattan.herokuapp.com/gun`]);
 
   const rooms = db.get("rooms");
 
@@ -38,12 +38,15 @@ async function main() {
     text.value = null;
   };
 
-  current.get("messages").map().once((data) => {
-    var li = liPool.pop() ?? document.createElement("li");
-    li.id = data.when;
-    li.textContent = `${data.who} > ${data.what}`;
-    messages.appendChild(li);
-  });
+  current
+    .get("messages")
+    .map()
+    .once((data) => {
+      var li = liPool.pop() ?? document.createElement("li");
+      li.id = data.when;
+      li.textContent = `${data.who} > ${data.what}`;
+      messages.appendChild(li);
+    });
 }
 main();
 function validateString(string) {
